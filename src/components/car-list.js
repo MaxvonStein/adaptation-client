@@ -1,11 +1,11 @@
 import React from "react";
-import ErrorBoundary from "react-error-boundary";
+// import ErrorBoundary from "@react-error-boundary";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { Link } from "@reach/router";
 import {
   GET_CARS_VIEW,
   GET_CARFORM,
-  GET_CARFORM_VARIABLE
+  GET_CARFORM_VARIABLE,
 } from "../pages/cars";
 import { SORT_CARS } from "../components/cars-forms";
 import CarImage from "./car-image";
@@ -82,8 +82,8 @@ export default function CarList() {
       variables: {
         cars,
         sortAttribute,
-        isSortReverse
-      }
+        isSortReverse,
+      },
     });
     isSorted = true;
   }
@@ -92,11 +92,11 @@ export default function CarList() {
   //   data.viewCars.length !== 0 || data.isFiltered ? data.viewCars : data.cars;
   return (
     <div>
-      {data.viewCars.map(car => (
+      {data.viewCars.map((car) => (
         <div key={car.vin}>
-          <ErrorBoundary FallbackComponent={ImageError}>
-            <CarImage car={car}></CarImage>
-          </ErrorBoundary>
+          {/* <ErrorBoundary FallbackComponent={ImageError}> */}
+          <CarImage car={car}></CarImage>
+          {/* </ErrorBoundary> */}
           <Link to={`/car/${car.vin}`}>
             <p>
               {car.year} {car.model}

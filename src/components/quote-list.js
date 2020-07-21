@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { createBrowserHistory } from "history";
 import { Redirect, Router, useNavigate } from "@reach/router";
-import ErrorBoundary from "react-error-boundary";
+// import ErrorBoundary from "@react-error-boundary";
 import { useApolloClient, useQuery, useMutation } from "@apollo/react-hooks";
 import { Link } from "@reach/router";
 import {
@@ -173,11 +173,11 @@ export default function QuoteList({ isPricesLoading }) {
               component={Box}
               className={classes.button}
             >
-              <ErrorBoundary FallbackComponent={ImageError}>
-                <Box className={classes.priceTagImageBox}>
-                  <CarImage car={car} />
-                </Box>
-              </ErrorBoundary>
+              {/* <ErrorBoundary FallbackComponent={ImageError}> */}
+              <Box className={classes.priceTagImageBox}>
+                <CarImage car={car} />
+              </Box>
+              {/* </ErrorBoundary> */}
               <Box className={classes.detailsBox}>
                 <Box className={isPricesLoading ? classes.hidden : undefined}>
                   <Typography variant="h5" className={classes.priceHighlight}>
